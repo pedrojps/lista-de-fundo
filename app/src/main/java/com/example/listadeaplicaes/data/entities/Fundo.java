@@ -16,10 +16,30 @@ public class Fundo implements Parcelable {
     @SerializedName("cnpj")
     private String cnpj;
 
-    public Fundo(String nomeCompleto,String nomeSimples,String cnpj){
+    @SerializedName("description_seo")
+    private String descriptionSEO;
+
+    @SerializedName("specification")
+    private Specification specification;
+
+    @SerializedName("fund_manager")
+    private FundManager manager;
+
+    @SerializedName("profitabilities")
+    private Profitabilities profitabilities;
+
+    @SerializedName("operability")
+    private Operability operability;
+
+    public Fundo(String nomeCompleto,String nomeSimples,String cnpj,String descriptionSEO,Specification specification,FundManager manager,Profitabilities profitabilities,Operability operability){
         this.nomeCompleto = nomeCompleto;
         this.nomeSimples = nomeSimples;
         this.cnpj = cnpj;
+        this.descriptionSEO = descriptionSEO;
+        this.specification =specification;
+        this.manager = manager;
+        this.profitabilities =profitabilities;
+        this.operability = operability;
     }
 
     public String getCnpj() {
@@ -44,6 +64,46 @@ public class Fundo implements Parcelable {
 
     public String getNomeSimples() {
         return nomeSimples;
+    }
+
+    public String getDescriptionSEO() {
+        return descriptionSEO;
+    }
+
+    public void setDescriptionSEO(String descriptionSEO) {
+        this.descriptionSEO = descriptionSEO;
+    }
+
+    public Specification getSpecification() {
+        return specification;
+    }
+
+    public FundManager getManager() {
+        return manager;
+    }
+
+    public void setManager(FundManager manager) {
+        this.manager = manager;
+    }
+
+    public void setSpecification(Specification specification) {
+        this.specification = specification;
+    }
+
+    public Profitabilities getProfitabilities() {
+        return profitabilities;
+    }
+
+    public void setProfitabilities(Profitabilities profitabilities) {
+        this.profitabilities = profitabilities;
+    }
+
+    public Operability getOperability() {
+        return operability;
+    }
+
+    public void setOperability(Operability operability) {
+        this.operability = operability;
     }
 
     protected Fundo(Parcel in) {

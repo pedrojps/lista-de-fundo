@@ -5,6 +5,10 @@
 
     <string name="procurar_fundo">Pesquisar</string>
 
+    <string name="m12_double">% (12M)</string>
+
+    <string name="aplicacao_m">Aplicação Mínima R$ </string>
+
     <string name="dialog_button_yes">Sim</string>
     <string name="dialog_button_no">Não</string>
     <string name="dialog_button_ok">OK</string>

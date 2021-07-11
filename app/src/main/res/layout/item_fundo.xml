@@ -18,37 +18,46 @@
             app:cardUseCompatPadding="true"
             app:cardElevation="@dimen/raised_medium"
             app:cardMaxElevation="6dp">
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
                 android:background="?attr/selectableItemBackground">
 
+                <TextView
+                    android:id="@+id/main_equipamento_icon"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:text="@{vm.nomeSimples}"
+                    android:padding="@dimen/padding_medium"
+                    android:layout_centerVertical="true"/>
+
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:padding="@dimen/padding_large"
-                    android:background="@color/indigo_light_1">
+                    android:layout_toEndOf="@+id/main_equipamento_icon"
+                    android:layout_toRightOf="@+id/main_equipamento_icon"
+                    android:background="@color/indigo_light_1"
+                    android:orientation="vertical"
+                    android:padding="@dimen/padding_large">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{vm.nomeSimples}"
-                        android:textSize="@dimen/text_medium"
+                        android:text="@{vm.profitabilities.m12+@string/m12_double}"
                         android:textColor="@color/colorAccent"
-                        android:textStyle="bold"/>
+                        android:textSize="@dimen/text_medium"
+                        android:textStyle="bold" />
 
                     <TextView
+                        style="@style/Text.Tiny"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/margin_tiny"
-                        android:text="@{vm.nomeCompleto}"
-                        android:maxLines="1"
                         android:ellipsize="end"
-                        style="@style/Text.Tiny"/>
+                        android:maxLines="1"
+                        android:text="@{@string/aplicacao_m+vm.operability.initialApplicationAmount}" />
                 </LinearLayout>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
