@@ -51,10 +51,19 @@ public class MainActivity extends AppCompatActivity implements FlexibleAdapter.O
         mBinding.fundoList.addItemDecoration(itemDecoration);
 
         subscribeItems();
+        subscribeFilter();
     }
 
 
 
+    private void subscribeFilter() {
+        mViewModel.getFilterConstraint().observe(this, text -> {
+            if (text != null && mAdapter.hasNewSearchText(text)) {
+                mAdapter.setSearchText(text);
+                mAdapter.filterItems(400L);
+            }
+        });
+    }
 
     private void subscribeItems() {
         mViewModel.getItems().observe(this, resource -> {

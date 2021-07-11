@@ -59,6 +59,6 @@ public class FundoViewItem extends AbstractFlexibleItem<FundoViewHolder> impleme
         String word;
         word = constraint.toLowerCase();
 
-        return mFundo.getNomeCompleto().contains(word);
+        return mFundo.getNomeCompleto().toLowerCase().contains(word)||mFundo.getNomeSimples().toLowerCase().contains(word);
     }
 }

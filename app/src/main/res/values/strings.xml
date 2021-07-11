@@ -3,6 +3,8 @@
 
     <string name="unexpected_error_message">Não foi possível completar a operação, ocorreu um erro inesperado.</string>
 
+    <string name="procurar_fundo">Pesquisar</string>
+
     <string name="dialog_button_yes">Sim</string>
     <string name="dialog_button_no">Não</string>
     <string name="dialog_button_ok">OK</string>

@@ -4,10 +4,13 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.databinding.Observable;
 import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.LiveDataReactiveStreams;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -39,7 +42,12 @@ public class MainViewModel extends AndroidViewModel {
     public final ObservableBoolean dataLoading = new ObservableBoolean(false);
 
     public final ObservableBoolean dataAvaliable = new ObservableBoolean(false);
-/*
+
+    public final ObservableField<String> filteringText = new ObservableField<>();
+
+    private final MutableLiveData<String> mFilterConstraint = new MutableLiveData<>();
+
+    /*
     private final SingleLiveEvent<Boolean> mDataLoading = new SingleLiveEvent<>();
 
     private final SingleLiveEvent<List<Fundo>> mCallData = new SingleLiveEvent<>();
@@ -58,7 +66,7 @@ public class MainViewModel extends AndroidViewModel {
         super(application);
         mFundoRepository=fundoRepository;
         loadFundos();
-       // importarPessoal();
+        setupObservables();
     }
 
     public LiveData<Resource<List<FundoViewItem>>> getItems() {
@@ -95,7 +103,25 @@ public class MainViewModel extends AndroidViewModel {
     private int sortByEquipeNameAsc(Fundo e1, Fundo e2) {
         return e1.getNomeCompleto().compareTo( e2.getNomeCompleto());
     }
-/*
+
+    private void setupObservables() {
+        filteringText.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable observable, int i) {
+                setFilterConstraint(filteringText.get());
+            }
+        });
+    }
+
+    private void setFilterConstraint(String text) {
+        mFilterConstraint.setValue(text);
+    }
+
+    public LiveData<String> getFilterConstraint() {
+        return mFilterConstraint;
+    }
+
+    /*
     public void importarPessoal() {
         try {
 
