@@ -18,6 +18,11 @@ public class Profitabilities   implements Parcelable {
     @SerializedName("day")
     private Double day;
 
+
+    @SerializedName("month")
+    private Double month;
+
+
     public Profitabilities(){}
 
     public Double getDay() {
@@ -31,7 +36,9 @@ public class Profitabilities   implements Parcelable {
     }
 
     public Double getYear() {
-        return year;
+        if(year==null)
+            return 0.00;
+        return MathUtils.round( year*100,2);
     }
 
     public void setDay(Double day) {
@@ -46,7 +53,21 @@ public class Profitabilities   implements Parcelable {
         this.year = year;
     }
 
+    public Double getMonth() {
+        if(month==null)
+            return 0.00;
+        return MathUtils.round( month*100,2);
+    }
+
+    public void setMonth(Double month) {
+        this.month = month;
+    }
+
     protected Profitabilities(Parcel in) {
+        m12 = in.readDouble();
+        year = in.readDouble();
+        day = in.readDouble();
+        month = in.readDouble();
     }
 
     public static final Creator<Profitabilities> CREATOR = new Creator<Profitabilities>() {
@@ -68,5 +89,12 @@ public class Profitabilities   implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        if(m12==null)
+            dest.writeDouble(0.00);
+        else
+            dest.writeDouble(m12);
+        dest.writeDouble(year);
+        dest.writeDouble(day);
+        dest.writeDouble(month);
     }
 }

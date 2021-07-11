@@ -37,7 +37,7 @@ import retrofit2.Response;
 
 public class MainViewModel extends AndroidViewModel {
 
-    private FundoRepository mFundoRepository;
+    private final FundoRepository mFundoRepository;
 
     public final ObservableBoolean dataLoading = new ObservableBoolean(false);
 
@@ -47,17 +47,6 @@ public class MainViewModel extends AndroidViewModel {
 
     private final MutableLiveData<String> mFilterConstraint = new MutableLiveData<>();
 
-    /*
-    private final SingleLiveEvent<Boolean> mDataLoading = new SingleLiveEvent<>();
-
-    private final SingleLiveEvent<List<Fundo>> mCallData = new SingleLiveEvent<>();
-
-    private final ErrorDialogMessage mErrorDialogMessage = new ErrorDialogMessage();
-
-    private final SimpleDialogMessage mSimpleDialogMessage = new SimpleDialogMessage();
-
-    private List<Fundo> fundos;
-*/
     private final CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
     private LiveData<Resource<List<FundoViewItem>>> mItems;
@@ -121,51 +110,6 @@ public class MainViewModel extends AndroidViewModel {
         return mFilterConstraint;
     }
 
-    /*
-    public void importarPessoal() {
-        try {
-
-            Disposable disposable =mFundoRepository.getAllFundos2()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(resource -> {
-                        switch (resource.status) {
-                            case SUCCESS:
-                                showLoadingUi(false);
-                                fundos = resource.data;
-                                break;
-                            case ERROR:
-                                showLoadingUi(false);
-                                showErrorDialogMessage(resource.message.header, resource.message.body);
-                                break;
-                            case LOADING:
-                                showLoadingUi(true);
-                                break;
-                        }
-                    }, this::logErrorAndWarnUser);
-            addDisposable(disposable);
-        } catch (Exception pde) {
-            showErrorDialogMessage("erro",pde.getMessage());
-        }
-    }
-
-    private void showLoadingUi(boolean loading) {
-        mDataLoading.setValue(loading);
-    }
-
-    private void showErrorDialogMessage(String header, String message) {
-        mErrorDialogMessage.setValue(header, message);
-    }
-    private void logErrorAndWarnUser(Throwable throwable) {
-        //Timber.e(throwable, "Erro na importação de dados.");
-        showDialogMessage(R.string.unexpected_error_message);
-    }
-
-    public void showDialogMessage(@StringRes int messageResId) {
-        mSimpleDialogMessage.setValue(messageResId);
-    }
-
-*/
     private void addDisposable(Disposable disposable) {
         mCompositeDisposable.add(disposable);
     }

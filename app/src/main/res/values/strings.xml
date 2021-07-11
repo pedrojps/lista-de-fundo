@@ -9,6 +9,35 @@
 
     <string name="aplicacao_m">Aplicação Mínima R$ </string>
 
+    <string name="discricao_mes">Mês</string>
+    <string name="aplicacao_minima">Aplicação Mínima</string>
+    <string name="discricao_12m">12M</string>
+    <string name="aplicacao_adicional">Aplicação Adicional</string>
+    <string name="discricao_prazo_cotizacao">Prazo de cotização de regate</string>
+
+    <string name="discricao_regras">Regras</string>
+
+    <string name="regra_aplicacao">Regra para aplicação</string>
+    <string name="minino_primeira_apli">Mínimo para 1ª aplicação</string>
+    <string name="minimo_adiciona_apli">Mínimo para Aplicação Adicional</string>
+    <string name="dias_conversao">Dias para conversão da aplicação</string>
+    <string name="horario_limite_aplica">Horário limite para aplicação</string>
+
+    <string name="regra_resgate">Regra para resgate</string>
+    <string name="minino_resgate">Mínimo para resgate</string>
+    <string name="saldo_minimo">Saldo mínimo de permanência</string>
+    <string name="dias_converte_resgate">Dias para conversão do resgate</string>
+    <string name="dias_pagamento_resgate">Dias para pagamento do resgate</string>
+    <string name="dias_converte_resgate_antesipado">Dias para conversão do resgate antecipado</string>
+    <string name="horario_limite_resgate">Horário limite de resgate</string>
+
+
+    <string name="custos">Custos</string>
+    <string name="administra">Adiministração</string>
+    <string name="adiministracao_max">Administração máxima</string>
+    <string name="perfomance">Performance</string>
+    <string name="resgate_antecipadp">Resgate antecipado</string>
+
     <string name="dialog_button_yes">Sim</string>
     <string name="dialog_button_no">Não</string>
     <string name="dialog_button_ok">OK</string>

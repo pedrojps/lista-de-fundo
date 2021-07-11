@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.listadeaplicaes.R;
@@ -13,6 +14,8 @@ import com.example.listadeaplicaes.data.entities.Fundo;
 import com.example.listadeaplicaes.data.network.Status;
 import com.example.listadeaplicaes.data.repository.FundoRepository;
 import com.example.listadeaplicaes.databinding.ActivityMainBinding;
+import com.example.listadeaplicaes.ui.detalhes.DetalhesActivity;
+import com.example.listadeaplicaes.ui.detalhes.DetalhesViewModel;
 import com.example.listadeaplicaes.utils.DialogUtils;
 import com.example.listadeaplicaes.utils.ObjectUtils;
 
@@ -20,6 +23,9 @@ import java.util.ArrayList;
 
 import eu.davidea.flexibleadapter.FlexibleAdapter;
 import eu.davidea.flexibleadapter.common.FlexibleItemDecoration;
+import eu.davidea.flexibleadapter.items.AbstractFlexibleItem;
+
+import static com.example.listadeaplicaes.ui.detalhes.DetalhesActivity.REQUEST_DETAIL_CODE;
 
 public class MainActivity extends AppCompatActivity implements FlexibleAdapter.OnItemClickListener{
 
@@ -86,9 +92,24 @@ public class MainActivity extends AppCompatActivity implements FlexibleAdapter.O
         return ViewModelProviders.of(this, factory).get(MainViewModel.class);
     }
 
+    public void openApontamentoDetail(Fundo apontamentoId) {
+        Intent it = DetalhesActivity.getStartIntent(this, apontamentoId);
+        startActivityForResult(it, REQUEST_DETAIL_CODE);
+    }
 
     @Override
     public boolean onItemClick(int position) {
+        int viewType = mAdapter.getItemViewType(position);
+
+        if (viewType == R.layout.item_fundo) {
+            AbstractFlexibleItem viewItem = mAdapter.getItem(position);
+
+            if(ObjectUtils.nonNull(viewItem)){
+                FundoViewItem item = (FundoViewItem) viewItem;
+                openApontamentoDetail(item.getModel());
+                return false;
+            }
+        }
         return false;
     }
 

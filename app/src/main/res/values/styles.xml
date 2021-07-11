@@ -13,4 +13,27 @@
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
     </style>
+
+    <style name="Header">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Header.Small">
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="Header.Small.Colored"/>
+
+    <style name="Header.Medium">
+        <item name="android:textSize">@dimen/text_medium</item>
+    </style>
+
+    <style name="Header.Medium.Colored"/>
+
+    <style name="Header.Large">
+        <item name="android:textSize">@dimen/text_extra_large_3</item>
+    </style>
+
+    <style name="Header.Large.Colored"/>
+
 </resources>

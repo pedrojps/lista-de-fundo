@@ -25,19 +25,22 @@
                 android:background="?attr/selectableItemBackground">
 
                 <TextView
-                    android:id="@+id/main_equipamento_icon"
+                    android:id="@+id/prezo_resgate"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:text="@{vm.nomeSimples}"
                     android:padding="@dimen/padding_medium"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/text_medium"
+                    android:textStyle="bold"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/main_equipamento_icon"
-                    android:layout_toRightOf="@+id/main_equipamento_icon"
+                    android:layout_toEndOf="@+id/prezo_resgate"
+                    android:layout_toRightOf="@+id/prezo_resgate"
                     android:background="@color/indigo_light_1"
                     android:orientation="vertical"
                     android:padding="@dimen/padding_large">
@@ -45,7 +48,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{vm.profitabilities.m12+@string/m12_double}"
+                        android:text="@{vm.profitabilities.m12==0.00 ? `--`+@string/m12_double : vm.profitabilities.m12+@string/m12_double}"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/text_medium"
                         android:textStyle="bold" />

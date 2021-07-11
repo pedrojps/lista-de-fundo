@@ -24,4 +24,6 @@
     <dimen name="text_extra_large_1">20sp</dimen>
     <dimen name="text_extra_large_2">22sp</dimen>
     <dimen name="text_extra_large_3">24sp</dimen>
+
+    <dimen name="text_extra_large_title">80sp</dimen>
 </resources>

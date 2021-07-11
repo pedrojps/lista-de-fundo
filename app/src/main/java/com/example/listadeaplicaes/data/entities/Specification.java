@@ -66,6 +66,11 @@ public class Specification implements Parcelable {
     }
 
     protected Specification(Parcel in) {
+        strategyExplanation = in.readString();
+        type = in.readString();
+        fundClass = in.readString();
+        mainStrategyName = in.readString();
+        classAnbima = in.readString();
     }
 
     public static final Creator<Specification> CREATOR = new Creator<Specification>() {
@@ -87,5 +92,10 @@ public class Specification implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(strategyExplanation);
+        dest.writeString(type);
+        dest.writeString(fundClass);
+        dest.writeString(mainStrategyName);
+        dest.writeString(classAnbima);
     }
 }

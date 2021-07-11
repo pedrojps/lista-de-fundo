@@ -31,7 +31,18 @@ public class Fundo implements Parcelable {
     @SerializedName("operability")
     private Operability operability;
 
-    public Fundo(String nomeCompleto,String nomeSimples,String cnpj,String descriptionSEO,Specification specification,FundManager manager,Profitabilities profitabilities,Operability operability){
+    @SerializedName("fees")
+    private Fees fees;
+
+    public Fundo(String nomeCompleto,
+                 String nomeSimples,
+                 String cnpj,
+                 String descriptionSEO,
+                 Specification specification,
+                 FundManager manager,
+                 Profitabilities profitabilities,
+                 Operability operability,
+                 Fees fees){
         this.nomeCompleto = nomeCompleto;
         this.nomeSimples = nomeSimples;
         this.cnpj = cnpj;
@@ -40,6 +51,7 @@ public class Fundo implements Parcelable {
         this.manager = manager;
         this.profitabilities =profitabilities;
         this.operability = operability;
+        this.fees = fees;
     }
 
     public String getCnpj() {
@@ -106,11 +118,37 @@ public class Fundo implements Parcelable {
         this.operability = operability;
     }
 
+    public Fees getFees() {
+        return fees;
+    }
+
+    public void setFees(Fees fees) {
+        this.fees = fees;
+    }
+
     protected Fundo(Parcel in) {
+        this.nomeCompleto = in.readString();
+        this.nomeSimples =  in.readString();
+        this.cnpj =  in.readString();
+        this.descriptionSEO =  in.readString();
+        this.specification =new Specification(in);
+        this.manager = new FundManager(in);
+        this.profitabilities = new Profitabilities(in);
+        this.operability = new Operability(in);
+        this.fees = new Fees(in);
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nomeCompleto );
+        dest.writeString(nomeSimples );
+        dest.writeString(cnpj );
+        dest.writeString(descriptionSEO );
+        this.specification.writeToParcel(dest,flags);
+        this.manager.writeToParcel(dest,flags);
+        this.profitabilities.writeToParcel(dest,flags);
+        this.operability.writeToParcel(dest,flags);
+        this.fees.writeToParcel(dest,flags);
     }
 
     @Override

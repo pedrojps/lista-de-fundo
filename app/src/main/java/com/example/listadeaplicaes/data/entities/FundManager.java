@@ -55,6 +55,9 @@ public class FundManager  implements Parcelable {
     }
 
     protected FundManager(Parcel in) {
+        description = in.readString();
+        full_name = in.readString();
+        name = in.readString();
     }
 
     public static final Creator<FundManager> CREATOR = new Creator<FundManager>() {
@@ -76,5 +79,8 @@ public class FundManager  implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(description);
+        dest.writeString(full_name);
+        dest.writeString(name);
     }
 }
