@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">lista de aplicações</string>
+
+    <string name="unexpected_error_message">Não foi possível completar a operação, ocorreu um erro inesperado.</string>
+
+    <string name="dialog_button_yes">Sim</string>
+    <string name="dialog_button_no">Não</string>
+    <string name="dialog_button_ok">OK</string>
+    <string name="dialog_button_continue">Continuar</string>
+    <string name="dialog_button_cancel">Cancelar</string>
+    <string name="dialog_button_delete">Excluir</string>
+    <string name="dialog_button_post">Enviar</string>
+</resources>

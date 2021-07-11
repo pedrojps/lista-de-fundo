@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="Text">
+        <item name="android:textColor">@color/textPrimaryColor</item>
+    </style>
+    <style name="Text.Tiny">
+        <item name="android:textSize">@dimen/text_tiny</item>
+        <item name="android:textColor">@color/textSecondaryColor</item>
+    </style>
+    <style name="List"/>
+
+    <style name="List.Item">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+</resources>
